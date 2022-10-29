@@ -7,10 +7,10 @@
 import ugame
 import stage
 
-def  game_scene():
+def game_scene():
     # this function is the main game game scene
-    
-    #image banks for CircuitPython
+
+    # image banks for CircuitPython
     image_bank_background = stage.Bank.from_bmp16("space_aliens_background.bmp")
     image_bank_sprites = stage.Bank.from_bmp16("space_aliens.bmp")
 
@@ -21,7 +21,7 @@ def  game_scene():
     # a sprite that will be updated every frame
     ship = stage.Sprite(image_bank_sprites, 5, 75, 66)
 
-    # create a stage for teh background to show up on 
+    # create a stage for the background to show up on
     #  and set the frame rate to 60fps
     game = stage.Stage(ugame.display, 60)
 
