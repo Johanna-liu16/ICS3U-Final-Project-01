@@ -7,6 +7,7 @@
 import ugame
 import stage
 
+
 def game_scene():
     # this function is the main game game scene
 
@@ -25,7 +26,7 @@ def game_scene():
     #  and set the frame rate to 60fps
     game = stage.Stage(ugame.display, 60)
 
-    #set the layers of all sprites, items show up in order
+    # set the layers of all sprites, items show up in order
     game.layers = [ship] + [background]
 
     # set the layers of all sprites, items show up in order
@@ -41,10 +42,10 @@ def game_scene():
 
         # update game logic
 
-        #redraw Sprite 
+        # redraw Sprite 
         game.render_sprites([ship])
         game.tick() # wait until refresh rate finishes
-    
-    
+
+
 if __name__ == "__main__":
     game_scene()
