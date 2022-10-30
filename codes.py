@@ -22,7 +22,9 @@ def game_scene():
     background = stage.Grid(image_bank_background, 10, 8)
 
     # a sprite that will be updated every frame
-    ship = stage.Sprite(image_bank_sprites, 5, 75, constants.SCREEN_Y - ( 2* constants.SPRITE_SIZE))
+    ship = stage.Sprite(
+        image_bank_sprites, 5, 75, constants.SCREEN_Y - ( 2* constants.SPRITE_SIZE)
+        )
 
     # create a stage for the background to show up on
     #  and set the frame rate to 60fps
@@ -63,9 +65,9 @@ def game_scene():
 
         # update game logic
 
-        #redraw Sprites
+        # redraw Sprites
         game.render_sprites([ship])
-        game.tick() # wait until refresh rate finishes
+        game.tick()  # wait until refresh rate finishes
 
 
 if __name__ == "__main__":
