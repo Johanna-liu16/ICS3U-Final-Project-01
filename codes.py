@@ -9,7 +9,6 @@ import stage
 import ugame
 
 
-
 def game_scene():
     # this function is the main game game scene
 
@@ -23,8 +22,8 @@ def game_scene():
 
     # a sprite that will be updated every frame
     ship = stage.Sprite(
-        image_bank_sprites, 5, 75, constants.SCREEN_Y - ( 2* constants.SPRITE_SIZE)
-        )
+        image_bank_sprites, 5, 75, constants.SCREEN_Y - (2 * constants.SPRITE_SIZE)
+    )
 
     # create a stage for the background to show up on
     #  and set the frame rate to 60fps
