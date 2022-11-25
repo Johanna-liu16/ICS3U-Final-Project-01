@@ -20,7 +20,7 @@ def menu_scene():
     text1 = stage.Text(
         width=29, height=12, font=None, palette=constants.RED_PALETTE, buffer=None
     )
-    text1.move(20,10)
+    text1.move(20, 10)
     text1.text("MT Game Studios")
     text.append(text1)
 
@@ -32,7 +32,8 @@ def menu_scene():
     text.append(text2)
 
     # set the background to image 0 in the image bank
-    background = stage.Grid(image_bank_mt_background, constants.SCREEN_X, constants.SCREEN_Y
+    background = stage.Grid(
+        image_bank_mt_background, constants.SCREEN_X, constants.SCREEN_Y
     )
 
     # create a stage for the background to show up on
