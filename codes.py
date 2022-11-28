@@ -4,10 +4,11 @@
 # Created on: Oct 2022
 # This program is the "Space Aliens" program on the PyBadge
 
+import random
+import time
+
 import constants
 import stage
-import time
-import random
 import ugame
 
 
@@ -15,7 +16,7 @@ def splash_scene():
     # this function is the main game game scene
 
     # get sound ready
-    coin_sound = open("coin.wav", 'rb')
+    coin_sound = open("coin.wav", "rb")
     sound = ugame.audio
     sound.mute(False)
     sound.play(coin_sound)
@@ -42,6 +43,7 @@ def splash_scene():
         # Wait for 1 sec
         time.sleep(1.0)
         menu_scene()
+
 
 def menu_scene():
     # this function is the main game game scene
@@ -70,7 +72,7 @@ def menu_scene():
         image_bank_mt_background, constants.SCREEN_X, constants.SCREEN_Y
     )
 
-    # used this program to split the image into tile: 
+    # used this program to split the image into tile:
     #   https://ezgif.com/sprite-cutter/ezgif-5-818cdbcc3f66.png
     background.tile(2, 2, 0)  # blank white
     background.tile(3, 2, 1)
@@ -308,6 +310,6 @@ def game_scene():
         game.render_sprites(aliens + lasers + [ship])
         game.tick()  # wait until refresh rate finishes
 
+
 if __name__ == "__main__":
     menu_scene()
-
