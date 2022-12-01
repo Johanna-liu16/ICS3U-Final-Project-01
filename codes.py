@@ -4,11 +4,10 @@
 # Created on: Oct 2022
 # This program is the "Space Aliens" program on the PyBadge
 
-import random
-import time
-
 import constants
 import stage
+import time
+import random
 import ugame
 
 
@@ -16,7 +15,7 @@ def splash_scene():
     # this function is the main game game scene
 
     # get sound ready
-    coin_sound = open("coin.wav", "rb")
+    coin_sound = open("coin.wav", 'rb')
     sound = ugame.audio
     sound.mute(False)
     sound.play(coin_sound)
@@ -43,7 +42,6 @@ def splash_scene():
         # Wait for 1 sec
         time.sleep(1.0)
         menu_scene()
-
 
 def menu_scene():
     # this function is the main game game scene
@@ -72,7 +70,7 @@ def menu_scene():
         image_bank_mt_background, constants.SCREEN_X, constants.SCREEN_Y
     )
 
-    # used this program to split the image into tile:
+    # used this program to split the image into tile: 
     #   https://ezgif.com/sprite-cutter/ezgif-5-818cdbcc3f66.png
     background.tile(2, 2, 0)  # blank white
     background.tile(3, 2, 1)
@@ -130,6 +128,12 @@ def game_scene():
 
     # for score
     score = 0
+
+    score_text = stage.Text(width=29, height=12)
+    score_text.clear()
+    score_text.cursor(0, 0)
+    score_text.move(1, 1)
+    score_text.text("Score: {0}".format(score))
 
     def show_alien():
         # this function take an alien from off screen and moves it on screen
@@ -201,7 +205,7 @@ def game_scene():
         lasers.append(a_single_laser)
 
     game = stage.Stage(ugame.display, constants.FPS)
-    game.layers = aliens + lasers + [ship] + [background]
+    game.layers = [score_text] + aliens + lasers + [ship] + [background]
     game.render_block()
 
     while True:
@@ -275,6 +279,13 @@ def game_scene():
                         constants.OFF_SCREEN_Y,
                     )
                     show_alien()
+                    score -= 1
+                    if score < 0:
+                        score = 0
+                    score_text.clear()
+                    score_text.cursor(0, 0)
+                    score_text.move(1, 1)
+                    score_text.text("Score: {0}".format(score))
 
         # collisin between alien and laser
         for laser_number in range(len(lasers)):
@@ -305,11 +316,15 @@ def game_scene():
                             show_alien()
                             show_alien()
                             score += 1
+                            score_text.clear()
+                            score_text.cursor(0, 0)
+                            score_text.move(1, 1)
+                            score_text.text("Score: {0}".format(score))
 
         # redraw Sprites
         game.render_sprites(aliens + lasers + [ship])
         game.tick()  # wait until refresh rate finishes
 
-
 if __name__ == "__main__":
     menu_scene()
+
